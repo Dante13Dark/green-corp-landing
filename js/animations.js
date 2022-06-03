@@ -8,15 +8,18 @@ function increaseNumberAnimationStep (i, element, endNumber) {
             element.innerText = i;
         }
         
-        i++;
+        i+=100;
         
-        setTimeout(increaseNumberAnimationStep(i, element, endNumber), INCREASE_NUMBER_ANIMATION_SPEED)
+        setTimeout(function() {
+            increaseNumberAnimationStep(i, element, endNumber);
+        }, INCREASE_NUMBER_ANIMATION_SPEED);
     }
 }
 
 function initIncreaseNumberAnimation() {
-    let element = document.querySelector(".features__clients-count")
-    increaseNumberAnimationStep(0, element, 5000)
+    const element = document.querySelector('.features__clients-count');
+    
+    increaseNumberAnimationStep(0, element, 5000);
 }
 
 initIncreaseNumberAnimation();
